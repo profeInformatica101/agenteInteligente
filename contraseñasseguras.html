@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class AgenteGeneradorContrasenias {
+  constructor() {
+    this.caracteres = {
+      letrasMinusculas: 'abcdefghijklmnopqrstuvwxyz',
+      letrasMayusculas: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
+      numeros: '0123456789',
+      simbolos: '!@#$%^&*()_-+=<>?'
+    };
+  }
+
+  generarContrasenia(longitud = 12, usarMayusculas = true, usarNumeros = true, usarSimbolos = true) {
+    let caracteresDisponibles = this.caracteres.letrasMinusculas;
+
+    if (usarMayusculas) {
+      caracteresDisponibles += this.caracteres.letrasMayusculas;
+    }
+
+    if (usarNumeros) {
+      caracteresDisponibles += this.caracteres.numeros;
+    }
+
+    if (usarSimbolos) {
+      caracteresDisponibles += this.caracteres.simbolos;
+    }
+
+    let contrasenia = '';
+    for (let i = 0; i < longitud; i++) {
+      const indiceAleatorio = Math.floor(Math.random() * caracteresDisponibles.length);
+      contrasenia += caracteresDisponibles.charAt(indiceAleatorio);
+    }
+
+    return contrasenia;
+  }
+}
+
+// Prueba del agente generador de contraseñas
+const generadorContrasenias = new AgenteGeneradorContrasenias();
+
+console.log(generadorContrasenias.generarContrasenia()); // Ejemplo: "r#M5p8Fh%Aj3"
+console.log(generadorContrasenias.generarContrasenia(8, false, true, false)); // Ejemplo: "g5f7r0h3"
+console.log(generadorContrasenias.generarContrasenia(16, true, true, false)); // Ejemplo: "G9v2Xm0Lh3q6Zn5Y"
+
+    </script>
+</body>
+</html>
