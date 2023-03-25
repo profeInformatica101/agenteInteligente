@@ -29,21 +29,6 @@ function generarGeneroAleatorio() {
     return Math.random() < 0.5 ? 'male' : 'female';
 }
 
- /** El agente inteligente, 
-  *  en este caso,
-  *  es una 'función de filtrado' 
-  *  que utiliza un 'árbol de decisión básico' 
-  *  para tomar decisiones 
-  *               en función de los atributos de los personajes ficticios. 
-  * */
-
-  function filtrarPersonajes(personajes, filtroEdad, filtroGenero, filtroOcupacion) {
-    return personajes.filter(personaje =>
-        personaje.edad >= filtroEdad &&
-        personaje.genero === filtroGenero &&
-        personaje.ocupacion.includes(filtroOcupacion)
-    );
-}
 /**
  * En este ejemplo, la función filtrarPersonajes 
  * toma una lista de personajes 
