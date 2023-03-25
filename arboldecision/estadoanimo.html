@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adivina mi estado de ánimo</title>
+</head>
+<body>
+    <h1>Adivina mi estado de ánimo</h1>
+    <form id="preguntas-form">
+        <p>¿Estás en paz?</p>
+        <input type="radio" id="paz-si" name="paz" value="si" required>
+        <label for="paz-si">Sí</label>
+        <input type="radio" id="paz-no" name="paz" value="no">
+        <label for="paz-no">No</label>
+
+        <p>¿Estás haciendo algo que te gusta?</p>
+        <input type="radio" id="gusta-si" name="gusta" value="si" required>
+        <label for="gusta-si">Sí</label>
+        <input type="radio" id="gusta-no" name="gusta" value="no">
+        <label for="gusta-no">No</label>
+
+        <p>¿Has dormido bien?</p>
+        <input type="radio" id="dormido-si" name="dormido" value="si" required>
+        <label for="dormido-si">Sí</label>
+        <input type="radio" id="dormido-no" name="dormido" value="no">
+        <label for="dormido-no">No</label>
+        
+        <br>
+        <button type="submit">Enviar respuestas</button>
+    </form>
+    <p id="resultado"></p>
+    
+    <script>
+        const form = document.getElementById('preguntas-form');
+        const resultado = document.getElementById('resultado');
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            
+            const paz = document.querySelector('input[name="paz"]:checked').value;
+            const gusta = document.querySelector('input[name="gusta"]:checked').value;
+            const dormido = document.querySelector('input[name="dormido"]:checked').value;
+            
+            if (paz === 'si' && gusta === 'si' && dormido === 'si') {
+                resultado.textContent = 'Tu estado de ánimo es muy feliz.';
+            } else if (paz === 'si' && gusta === 'si') {
+                resultado.textContent = 'Tu estado de ánimo es feliz.';
+            } else if (paz === 'si' || gusta === 'si' || dormido === 'si') {
+                resultado.textContent = 'Tu estado de ánimo es bastante positivo.';
+            } else {
+                resultado.textContent = 'Tu estado de ánimo es difícil de determinar, podría ser neutral o negativo.';
+            }
+        });
+    </script>
+</body>
+</html>
