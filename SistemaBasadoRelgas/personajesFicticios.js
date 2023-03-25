@@ -1,3 +1,4 @@
+
 class PersonajeFicticio {
     constructor(nombre, apellido, correo, genero, edad, ocupacion) {
         this.nombre = nombre;
@@ -29,6 +30,17 @@ function generarGeneroAleatorio() {
 }
 
 
+/**
+ * En este ejemplo, la función filtrarEdadGeneroOcupacion 
+ * toma una lista de personajes 
+ * y tres filtros (edad, género y ocupación). 
+ * 
+ * La función filtra a los personajes 
+ * que cumplen con los criterios especificados.
+ * 
+ * Mayores o iguales de la edad, su genero y si contiene la palabra que ocupa.
+ */
+ 
 function filtrarEdadGeneroOcupacion(filtroEdad, filtroGenero, filtroOcupacion){
     return personajes.filter(personaje =>
         personaje.edad >= filtroEdad &&
@@ -38,12 +50,11 @@ function filtrarEdadGeneroOcupacion(filtroEdad, filtroGenero, filtroOcupacion){
 }
 console.log("Mayor de 30 que sea mujer y tenga un titulo de Ingeniero");
 console.log(filtrarEdadGeneroOcupacion(30, 'female', 'Engineer'));
-console.log("Variable global:  <PersonajeFicticio>[] personajes");
+console.log(imprimePersonajes(filtrarEdadGeneroOcupacion(30, 'female', 'Engineer')));
+console.log("Variable global: 'personajes' de tipo Lista [<PersonajeFicticio>] ");
 console.log("Funciones:  ");
 console.log("- filtrarEdadGeneroOcupacion(filtroEdad, filtroGenero, filtroOcupacion)  ");
 console.log("- imprimePersonajes(lst_personaje)  ");
-
-imprimePersonajes(filtrarEdadGeneroOcupacion(30, 'female', 'Engineer'));
 
 
 function imprimePersonajes(lst_personaje){
