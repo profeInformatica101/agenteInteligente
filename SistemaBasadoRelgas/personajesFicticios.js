@@ -43,7 +43,7 @@ console.log("Funciones:  ");
 console.log("- filtrarEdadGeneroOcupacion(filtroEdad, filtroGenero, filtroOcupacion)  ");
 console.log("- imprimePersonajes(lst_personaje)  ");
 
-imprimePersonajes(filtrarEdadGeneroOcupacion(30, 'male', 'Engineer'));
+imprimePersonajes(filtrarEdadGeneroOcupacion(30, 'female', 'Engineer'));
 
 
 function imprimePersonajes(lst_personaje){
